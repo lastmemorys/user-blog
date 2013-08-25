@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  replay_by: MyString
+  replay_content: MyText
+  blog: 
+
+two:
+  replay_by: MyString
+  replay_content: MyText
+  blog: 

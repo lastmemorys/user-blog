@@ -1,0 +1,33 @@
+<div>
+  <div>详细内容</div>
+  <%= @blog.title %>
+  <br/>
+  <%= @blog.content %>
+  <div>
+    <%= @blog.tags.map { |t| t.content }.join(",") %>
+  </div>
+  <% unless @blog.comments.empty? %>
+      <div class="replay">
+        <ul>
+          <% @blog.comments.each do |replay| %>
+              <li>
+                <%= replay.replay_content %>
+                :<%= replay.replay_by %> <%= button_to "删除", [@blog, replay], :method => :delete, data: {confirm: "are you sure?"} %>
+              </li>
+          <% end %>
+        </ul>
+      </div>
+  <% end %>
+</div>
+
+<%= form_for [@blog, @blog.comments.build] do |f| %>
+    <%= f.label "姓名" %>
+    <%= f.text_field :replay_by %>
+    <%= f.label "内容" %>
+    <%= f.text_field :replay_content %>
+    <%= f.submit "提交" %>
+<% end %>
+<div>
+  <%= link_to "回首页", blogs_path %>
+  <%= link_to "修改", edit_blog_path(@blog) %>
+</div>

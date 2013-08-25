@@ -1,0 +1,14 @@
+<h1>Blogs#index</h1>
+<ul>
+  <% @blogs.each do |blog| %>
+      <li>
+        <%= blog.title %>
+        <br/>
+        <%= blog.content %>
+        <%= link_to "详细", blog_path(blog) %>
+        <%= link_to "修改", edit_blog_path(blog) %>
+        <%= link_to "删除", blog_path(blog), :method => :delete, data: {confirm: "are you sure?"} %>
+      </li>
+  <% end %>
+  <%= link_to "新增", new_blog_path %>
+</ul>
